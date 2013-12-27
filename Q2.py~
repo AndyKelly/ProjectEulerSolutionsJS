@@ -1,0 +1,15 @@
+
+def isEven(num):
+    return num % 2 == 0
+
+def sumOfEvenFibbonacciNumbers(upperLimit):
+    currentFib = 1
+    previousFib = 1    
+    sumOfEvenFibs = 0
+    while currentFib < upperLimit:
+        if isEven(currentFib):
+            sumOfEvenFibs += currentFib
+        currentFib, previousFib = currentFib + previousFib, currentFib
+    return sumOfEvenFibs
+
+print sumOfEvenFibbonacciNumbers(4000000)
