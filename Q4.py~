@@ -1,0 +1,33 @@
+def is_palindrome(number):
+    digitArray = str(number)
+    if len(digitArray) % 2 != 0:
+        #odd remove middle element as it wont impact palindropicness
+        digitArray = digitArray[0:len(digitArray)/2] + digitArray[len(digitArray)/2 + 1:]
+
+    length = len(digitArray)
+    x = 0
+    y = length -1
+    while x < length -1 and y > 0:
+        if digitArray[x] != digitArray[y]:
+            return False
+        x+=1
+        y-=1
+    return True
+
+upperLimit = 999
+
+largest = 0
+x = 0
+y = 0
+while x <= upperLimit:
+    while y <= upperLimit:
+        product = x * y
+        if is_palindrome(product) and product > largest:
+            largest = product
+        y+=1    
+    x+= 1
+    y = 0 
+
+print largest
+
+
